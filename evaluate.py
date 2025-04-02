@@ -219,6 +219,7 @@ def load_model(args) -> tuple:
             torch_dtype=torch.float16,
             device_map="auto",
             trust_remote_code=True,
+            attn_implementation="flash_attention_2",
         ) # fix zwq
         model = PeftModel.from_pretrained(
             model,
@@ -231,6 +232,7 @@ def load_model(args) -> tuple:
             base_model,
             device_map={"": device},
             torch_dtype=torch.float16,
+            attn_implementation="flash_attention_2",
         )
         model = PeftModel.from_pretrained(
             model,

@@ -84,8 +84,8 @@ def main(
         print("Response:", evaluate(instruction))
         print()
     """
-    save_file = os.path.join(args.working_path, f'experiment/{args.model}-{args.adapter}-{args.dataset}.json')
-    create_dir(os.path.join(args.working_path, 'experiment/'))
+    save_file = os.path.join(f'experiment/{args.model}-{args.adapter}-{args.dataset}.json')
+    create_dir(os.path.join('experiment/'))
 
     dataset = load_data(args)
     tokenizer, model = load_model(args)
@@ -186,7 +186,6 @@ def parse_args():
     parser.add_argument('--base_model', required=True)
     parser.add_argument('--lora_weights', required=True)
     parser.add_argument('--load_8bit', action='store_true', default=False)
-    parser.add_argument('--working_path', required=True)
 
     return parser.parse_args()
 

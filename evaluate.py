@@ -84,7 +84,8 @@ def main(
         print("Response:", evaluate(instruction))
         print()
     """
-    save_file = os.path.join(f'experiment/{args.model}-{args.adapter}-{args.dataset}.json')
+    # save_file = os.path.join(f'experiment/{args.model}-{args.adapter}-{args.dataset}.json')
+    save_file = os.path.join(f'experiment/{args.lora_weights.split('/')[-1]}-{args.dataset}.json')
     create_dir(os.path.join('experiment/'))
 
     dataset = load_data(args)
